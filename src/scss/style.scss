@@ -1,0 +1,219 @@
+/*Brand colors*/
+$brand-color: rgb(26, 26, 80);
+$font-regular: 400;
+$font-bold: 800;
+/*General styling*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+/*Styles for header*/
+%brand-heading {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 10px;
+}
+header {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+        width: 30%;
+        margin-bottom: 25px;
+    }
+    h1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        span {
+            @extend %brand-heading;
+            background-color: $brand-color;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+    }
+}
+.round-logo {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: $brand-color;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.25);
+}
+.scroll-down {
+    text-align: center;
+    p {
+        font-size: 12px;
+        margin-top: 50px;
+        margin-bottom: 15px;
+    }
+}
+
+/*Styles for articles*/
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+article {
+    position: relative;
+    img {
+        width: 100%;
+    }
+    h2 {
+        color: $brand-color;
+        font-size: 32px;
+        font-weight: $font-bold;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    p {
+        line-height: 1.5em;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    video {
+        width: 100%;
+        height: auto;
+        margin-bottom: 40px;
+    }
+    video[poster] {
+        object-fit: cover;
+    }
+    .time {
+        background: #fff;
+        padding: 5px 0;
+        position: absolute;
+        top: 7px;
+        left: -120px;
+        text-align: center;
+        color: rgb(189, 0, 0);
+    }
+}
+%article-border-left {
+    width: 2px;
+    background: rgb(210, 210, 210);
+    position: absolute;
+    top: 0;
+    left: 70px;
+    z-index: -1;
+}
+article:last-of-type .article-border-left {
+    @extend %article-border-left;
+    height: 50%;
+}
+.article-border-left {
+    @extend %article-border-left;
+    height: 100%;
+}
+#article-day {
+    font-weight: $font-bold;
+    font-size: 16px;
+}
+.article-container-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*Footer styling*/
+footer {
+    margin-top: 50px;
+    background: $brand-color;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    h2 {
+        @extend %brand-heading;
+        color: $brand-color;
+        background: #fff;
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+}
+.social {
+    width: 250px;
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+.copyright {
+    font-size: 10px;
+    color: #fff;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+/*Responsive styling*/
+
+@media only screen and (max-width: 960px) {
+    .article-border-left, 
+    article:last-of-type .article-border-left {
+        display: none;
+    }
+    article .time {
+        top: 0;
+        left: -70px;
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 768px){
+
+    .article-container-inner {
+        max-width: 94%;
+    }
+    article video {
+        width: 90%;
+        margin: 0 5% 40px 5%;
+    }
+    article h2 {
+        margin-left: 50px;
+        font-size: 28px;
+    }
+    article .time {
+        top: 0;
+        left: 0;
+        padding: 0;
+    }
+    footer {
+        height: 250px;
+    }
+    .social {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    
+    article time {
+        top: 0;
+        left: 0px;
+        padding: 0;
+    }
+    article h2 {
+        margin-left: 50px;
+        font-size: 22px;
+    }
+    article p {
+        font-size: 14px;
+    }
+    .social {
+        font-size: 22px;
+    }
+}
